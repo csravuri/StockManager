@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Padding="10"
+             NavigationPage.HasBackButton="False"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StockManager.Views.StockCreatePage">
+    <AbsoluteLayout>
+        <Image BackgroundColor="Orange" 
+               x:Name="itemImage"
+               Source="{Binding ImagePath}"
+               AbsoluteLayout.LayoutBounds="0,0,1,0.4" AbsoluteLayout.LayoutFlags="All" >
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CaptureImage"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0.6,1,0.3" AbsoluteLayout.LayoutFlags="All">
+            <Entry Placeholder="Item Name" PlaceholderColor="Gray" x:Name="itemName" Text="{Binding Name}" Keyboard="Chat"/>
+            <Entry Placeholder="Price" PlaceholderColor="Gray" Keyboard="Numeric" x:Name="price" Text="{Binding Price}"/>
+            <Entry Placeholder="Stock Qty" PlaceholderColor="Gray" Keyboard="Numeric" x:Name="stockQty" Text="{Binding StockQty}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal"
+                     AbsoluteLayout.LayoutBounds="0,0.9,1,0.2" AbsoluteLayout.LayoutFlags="All">
+            <Button Text="Cancel" 
+                    BackgroundColor="Transparent" 
+                    BorderColor="Transparent" TextColor="Red" 
+                    HorizontalOptions="StartAndExpand"
+                    Clicked="OnCancel"/>
+            <Button Text="Save" 
+                    BackgroundColor="Transparent" 
+                    BorderColor="Transparent" 
+                    TextColor="Green"
+                    Clicked="OnSave"/>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>
